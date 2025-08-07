@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telangana Hackathon 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #6c63ff;
+            --secondary: #4a42e8;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --accent: #ff6b6b;
+            --success: #28a745;
+            --warning: #ffc107;
+            --info: #17a2b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+         body {
+            background-color: #f5f5f7;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--secondary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background:  #4a42e8;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background:  #4a42e8;
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        .btn-outline {
+            background:  #4a42e8;
+            border: 2px solid  #4a42e8;
+           color: white;
+        }
+        
+        .btn-outline:hover {
+            background:  #4a42e8;
+            color: white;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--dark);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+            margin-top: 20px;
+            
+            
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            font-weight: 500;
+            margin-left: 20px;
+            margin-top: 10px;
+            
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(205, 232, 253, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--white);
+            font-size: 24px;
+            animation: bounce 2s infinite;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--light-color);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeInLeft 1s ease;
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text {
+            flex: 1;
+            animation: fadeInRight 1s ease;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-item h4 {
+            font-size: 36px;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        .stat-item p {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        /* Themes Section */
+        .themes {
+            background-color: var(--white);
+        }
+        
+        .themes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .theme-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.5s ease;
+        }
+        
+        .theme-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .theme-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .theme-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .theme-card:hover .theme-img img {
+            transform: scale(1.1);
+        }
+        
+        .theme-content {
+            padding: 25px;
+        }
+        
+        .theme-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .theme-content p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .problem-statements {
+            margin-top: 20px;
+        }
+        
+        .problem-statements h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .problem-statements ul {
+            list-style-position: inside;
+            margin-left: 10px;
+        }
+        
+        .problem-statements li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        /* Timeline Section */
+        .timeline {
+            background-color: var(--light-color);
+        }
+        
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            animation-delay: 0.3s;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            animation-delay: 0.6s;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            border: 4px solid var(--secondary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -12px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .timeline-content p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--white);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            animation: fadeInLeft 1s ease;
+        }
+        
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-detail i {
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-color);
+            color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            animation: fadeInRight 1s ease;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.2);
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-logo span {
+            color: var(--secondary);
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-contact i {
+            color: var(--secondary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links-bottom {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links-bottom a {
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links-bottom a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* Theme Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.show {
+            display: block;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            margin: 50px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            position: relative;
+        }
+        
+        .modal-header h3 {
+            font-size: 24px;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: var(--white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: var(--secondary-color);
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .modal-body h4 {
+            font-size: 20px;
+            margin: 20px 0 10px;
+            color: var(--primary-color);
+        }
+        
+        .modal-body ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-body li {
+            margin-bottom: 8px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-img, .about-text {
+                flex: none;
+                width: 100%;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .timeline-container::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .timeline-item:nth-child(odd)::after {
+                right: auto;
+                left: 18px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .section-title p {
+                font-size: 16px;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--primary-color);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: all 0.5s ease;
+            }
+            
+            nav ul.show {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 30px;
+            }
+            
+            .section-title h2 {
+                font-size: 26px;
+            }
+            
+            .theme-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+   <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Hackathon <span> 2025</span></a>
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="themes.html">Themes</a></li>
+                    <li><a href="timeline.html">Timeline</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                  <a href="/rulebook.htm" class="download-btn" download>
+                
+                Rule <p>Book</p>
+            </a>
+                    <a href="team.html" class="btn">Register</a>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Hackathon 2025</h1>
+            <p>Building Solutions for Tomorrow's Challenges</p>
+            <div class="hero-btns">
+                <a href="themes.html" class="btn">Explore Themes</a>
+                <a href="team.html" class="btn btn-outline">Register Now</a>
+            </div>
+        </div>
+        <a href="#about" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About the Hackathon</h2>
+                <p>Join the state's brightest minds to build solutions that shape tomorrow. Telangana Hackathon 2025 focuses on key thematic areas aligned with the state's development goals.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Hackathon Team">
+                </div>
+                <div class="about-text">
+                    <h3>Empower Innovation. Transform the Future.</h3>
+                    <p>The Telangana Hackathon 2025 brings together students, developers, and innovators from across the state to solve real-world challenges through technology-driven solutions.</p>
+                    <p>Our themes were carefully selected through consultations with domain experts, government officials, and community stakeholders to address the most pressing needs of our society.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h4>₹1L+</h4>
+                            <p>In Prizes</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>15+</h4>
+                            <p>Problem Areas</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>500+</h4>
+                            <p>Teams Expected</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Themes Section -->
+    <section class="themes" id="themes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Innovation Themes</h2>
+                <p>Explore our curated innovation themes designed to address critical challenges facing Telangana and beyond.</p>
+            </div>
+            <div class="themes-container">
+                <!-- Theme 1 -->
+                <div class="theme-card" data-theme="healthcare">
+                    <div class="theme-img">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Healthcare Innovation">
+                    </div>
+                    <div class="theme-content">
+                        <h3>Healthcare Innovation</h3>
+                        <p>Revolutionizing healthcare access and delivery through technology.</p>
+                        <div class="problem-statements">
+                            <h4>Sample Problem Statements:</h4>
+                            <ul>
+                                <li>AI-powered early disease detection</li>
+                                <li>Telemedicine for rural communities</li>
+                                <li>Mental health support platforms</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn explore-theme-btn">Explore Theme</a>
+                    </div>
+                </div>
+                
+                <!-- Theme 2 -->
+                <div class="theme-card" data-theme="agriculture">
+                    <div class="theme-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXTTS_OKv2eaRFPY1ENp8uOmvsWkSdY_F9LQ&s" alt="Agricultural Technology">
+                    </div>
+                    <div class="theme-content">
+                        <h3>Agricultural Technology</h3>
+                        <p>Empowering farmers with smart solutions for sustainable agriculture.</p>
+                        <div class="problem-statements">
+                            <h4>Sample Problem Statements:</h4>
+                            <ul>
+                                <li>Crop disease prediction using AI</li>
+                                <li>Water conservation systems</li>
+                                <li>Market linkage platforms</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn explore-theme-btn">Explore Theme</a>
+                    </div>
+                </div>
+                
+                <!-- Theme 3 -->
+                <div class="theme-card" data-theme="smart-cities">
+                    <div class="theme-img">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Smart Cities">
+                    </div>
+                    <div class="theme-content">
+                        <h3>Smart Cities</h3>
+                        <p>Building sustainable and efficient urban ecosystems.</p>
+                        <div class="problem-statements">
+                            <h4>Sample Problem Statements:</h4>
+                            <ul>
+                                <li>Intelligent traffic management</li>
+                                <li>Waste management optimization</li>
+                                <li>Public safety solutions</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn explore-theme-btn">Explore Theme</a>
+                    </div>
+                </div>
+                
+                <!-- Theme 4 -->
+                <div class="theme-card" data-theme="education">
+                    <div class="theme-img">
+                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Education Technology">
+                    </div>
+                    <div class="theme-content">
+                        <h3>Education Technology</h3>
+                        <p>Transforming learning experiences through innovative tech.</p>
+                        <div class="problem-statements">
+                            <h4>Sample Problem Statements:</h4>
+                            <ul>
+                                <li>Personalized learning platforms</li>
+                                <li>AR/VR for immersive education</li>
+                                <li>Digital literacy tools</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn explore-theme-btn">Explore Theme</a>
+                    </div>
+                </div>
+                
+                <!-- Theme 5 -->
+                <div class="theme-card" data-theme="governance">
+                    <div class="theme-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Digital Governance">
+                    </div>
+                    <div class="theme-content">
+                        <h3>Digital Governance</h3>
+                        <p>Enhancing government services through technology.</p>
+                        <div class="problem-statements">
+                            <h4>Sample Problem Statements:</h4>
+                            <ul>
+                                <li>Citizen grievance redressal</li>
+                                <li>Transparent service delivery</li>
+                                <li>Blockchain for records</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn explore-theme-btn">Explore Theme</a>
+                    </div>
+                </div>
+                
+                <!-- Theme 6 -->
+                <div class="theme-card" data-theme="social">
+                    <div class="theme-img">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Social Innovation">
+                    </div>
+                    <div class="theme-content">
+                        <h3>Social Innovation</h3>
+                        <p>Solving societal challenges through tech-driven solutions.</p>
+                        <div class="problem-statements">
+                            <h4>Sample Problem Statements:</h4>
+                            <ul>
+                                <li>Drug abuse prevention</li>
+                                <li>Women safety applications</li>
+                                <li>Accessibility solutions</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn explore-theme-btn">Explore Theme</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline" id="timeline">
+        <div class="container">
+            <div class="section-title">
+                <h2>Event Timeline</h2>
+                <p>Important dates and milestones for Telangana Hackathon 2025</p>
+            </div>
+            <div class="timeline-container">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">June 1, 2025</div>
+                        <h3>Registrations Open</h3>
+                        <p>Online registration begins for all participants. Teams can register through our portal.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">July 15, 2025</div>
+                        <h3>Registration Deadline</h3>
+                        <p>Last date to register for the hackathon. All teams must submit their basic details.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">July 30, 2025</div>
+                        <h3>Theme Selection</h3>
+                        <p>Teams must finalize and submit their chosen theme and problem statement.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">August 15-17, 2025</div>
+                        <h3>Hackathon Event</h3>
+                        <p>36-hour coding marathon at T-Hub, Hyderabad. All teams work on their solutions.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">August 17, 2025</div>
+                        <h3>Judging & Awards</h3>
+                        <p>Final presentations and judging. Winners announced and prizes distributed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Have questions about the hackathon? Get in touch with our team.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>For any queries regarding registration, themes, or event details, please contact our team.</p>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>T-Hub Foundation, Catalyst Building, CII, HITEC City, Hyderabad</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+91 40 6655 3000</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <span>myself_akhil.y@icloud.com</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+   <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">Hackathon<span>2025</span></div>
+                    <p>Empower Innovation. Transform the Future. Join the state's brightest minds to build solutions that shape tomorrow.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#themes">Themes & Problem Statements</a></li>
+                        <li><a href="#timeline">Event Timeline</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> T-Hub Foundation, Catalyst Building, CII, HITEC City, Hyderabad</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 40 6655 3000</p>
+                    <p><i class="fas fa-envelope"></i> myself_akhil.y@icloud.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-links-bottom">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Code of Conduct</a>
+                </div>
+                <p>© 2025 State Hackathon. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Theme Modals -->
+    <!-- Healthcare Modal -->
+    <div class="modal" id="healthcare-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Healthcare Innovation</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h4>Theme Description</h4>
+                <p>This theme focuses on leveraging technology to revolutionize healthcare access and delivery, particularly for underserved communities in Telangana.</p>
+                
+                <h4>Problem Statements</h4>
+                <ul>
+                    <li>AI-powered early disease detection systems for rural areas</li>
+                    <li>Telemedicine platforms connecting rural patients with specialists</li>
+                    <li>Mental health support and counseling applications</li>
+                    <li>IoT-based remote patient monitoring solutions</li>
+                    <li>Blockchain for secure medical records sharing</li>
+                    <li>AR/VR applications for medical training</li>
+                    <li>Automated diagnostic tools for common diseases</li>
+                </ul>
+                
+                <h4>Expected Outcomes</h4>
+                <p>Solutions should aim to improve healthcare accessibility, reduce costs, and enhance the quality of care, particularly in rural and semi-urban areas of Telangana.</p>
+                
+                <h4>Technology Focus Areas</h4>
+                <ul>
+                    <li>Artificial Intelligence & Machine Learning</li>
+                    <li>Internet of Things (IoT)</li>
+                    <li>Mobile Applications</li>
+                    <li>Data Analytics</li>
+                    <li>Blockchain</li>
+                </ul>
+                
+                <a href="#" class="btn">Register for this Theme</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Agriculture Modal -->
+    <div class="modal" id="agriculture-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Agricultural Technology</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h4>Theme Description</h4>
+                <p>This theme focuses on developing smart solutions to empower Telangana's farmers with sustainable agricultural practices and improved market access.</p>
+                
+                <h4>Problem Statements</h4>
+                <ul>
+                    <li>Crop disease prediction using AI and image recognition</li>
+                    <li>Smart irrigation and water conservation systems</li>
+                    <li>Digital market linkage platforms for farmers</li>
+                    <li>IoT-based soil quality monitoring devices</li>
+                    <li>Drone technology for crop monitoring</li>
+                    <li>Blockchain for agricultural supply chain transparency</li>
+                    <li>Weather prediction and advisory systems</li>
+                </ul>
+                
+                <h4>Expected Outcomes</h4>
+                <p>Solutions should aim to increase agricultural productivity, reduce input costs, minimize post-harvest losses, and improve farmers' access to markets.</p>
+                
+                <h4>Technology Focus Areas</h4>
+                <ul>
+                    <li>Artificial Intelligence</li>
+                    <li>Internet of Things (IoT)</li>
+                    <li>Drone Technology</li>
+                    <li>Mobile Applications</li>
+                    <li>Blockchain</li>
+                </ul>
+                
+                <a href="#" class="btn">Register for this Theme</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Other theme modals would follow the same pattern -->
+    <!-- Smart Cities Modal -->
+    <div class="modal" id="smart-cities-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Smart Cities</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h4>Theme Description</h4>
+                <p>This theme focuses on building sustainable and efficient urban ecosystems through technology-driven solutions for Hyderabad and other cities in Telangana.</p>
+                
+                <h4>Problem Statements</h4>
+                <ul>
+                    <li>Intelligent traffic management and congestion reduction</li>
+                    <li>Smart waste management and recycling solutions</li>
+                    <li>Energy-efficient building technologies</li>
+                    <li>Public safety and surveillance systems</li>
+                    <li>Parking management solutions</li>
+                    <li>Air quality monitoring and improvement</li>
+                    <li>Water distribution and leak detection systems</li>
+                </ul>
+                
+                <h4>Expected Outcomes</h4>
+                <p>Solutions should aim to improve urban living standards, reduce environmental impact, and enhance the efficiency of city services and infrastructure.</p>
+                
+                <h4>Technology Focus Areas</h4>
+                <ul>
+                    <li>Internet of Things (IoT)</li>
+                    <li>Data Analytics</li>
+                    <li>Artificial Intelligence</li>
+                    <li>Cloud Computing</li>
+                    <li>Mobile Applications</li>
+                </ul>
+                
+                <a href="#" class="btn">Register for this Theme</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Education Modal -->
+    <div class="modal" id="education-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Education Technology</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h4>Theme Description</h4>
+                <p>This theme focuses on transforming learning experiences through innovative technologies to improve access and quality of education in Telangana.</p>
+                
+                <h4>Problem Statements</h4>
+                <ul>
+                    <li>Personalized learning platforms for diverse learners</li>
+                    <li>AR/VR applications for immersive education</li>
+                    <li>Digital literacy tools for rural areas</li>
+                    <li>Skill development and vocational training platforms</li>
+                    <li>AI-powered tutoring and assessment systems</li>
+                    <li>Gamification of education</li>
+                    <li>Teacher training and support tools</li>
+                </ul>
+                
+                <h4>Expected Outcomes</h4>
+                <p>Solutions should aim to bridge educational gaps, improve learning outcomes, and make quality education accessible to all students in Telangana.</p>
+                
+                <h4>Technology Focus Areas</h4>
+                <ul>
+                    <li>Augmented & Virtual Reality</li>
+                    <li>Artificial Intelligence</li>
+                    <li>Mobile Applications</li>
+                    <li>Gamification</li>
+                    <li>Cloud Computing</li>
+                </ul>
+                
+                <a href="#" class="btn">Register for this Theme</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Governance Modal -->
+    <div class="modal" id="governance-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Digital Governance</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h4>Theme Description</h4>
+                <p>This theme focuses on enhancing government services and citizen engagement through technology solutions for more transparent and efficient governance.</p>
+                
+                <h4>Problem Statements</h4>
+                <ul>
+                    <li>Citizen grievance redressal and tracking systems</li>
+                    <li>Transparent public service delivery mechanisms</li>
+                    <li>Blockchain applications for government records</li>
+                    <li>AI-powered policy analysis and decision support</li>
+                    <li>Accessibility solutions for government websites</li>
+                    <li>Fraud detection in welfare schemes</li>
+                    <li>Participatory budgeting and planning tools</li>
+                </ul>
+                
+                <h4>Expected Outcomes</h4>
+                <p>Solutions should aim to improve government efficiency, increase transparency, and enhance citizen participation in governance processes.</p>
+                
+                <h4>Technology Focus Areas</h4>
+                <ul>
+                    <li>Blockchain Technology</li>
+                    <li>Artificial Intelligence</li>
+                    <li>Data Analytics</li>
+                    <li>Web Applications</li>
+                    <li>Cybersecurity</li>
+                </ul>
+                
+                <a href="#" class="btn">Register for this Theme</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Social Innovation Modal -->
+    <div class="modal" id="social-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Social Innovation</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h4>Theme Description</h4>
+                <p>This theme focuses on solving pressing societal challenges in Telangana through technology-driven solutions that create positive social impact.</p>
+                
+                <h4>Problem Statements</h4>
+                <ul>
+                    <li>Drug abuse prevention and rehabilitation platforms</li>
+                    <li>Women safety applications and emergency response</li>
+                    <li>Accessibility solutions for people with disabilities</li>
+                    <li>Community engagement and volunteering platforms</li>
+                    <li>Elderly care and support systems</li>
+                    <li>Child safety and education tools</li>
+                    <li>Waste management and recycling initiatives</li>
+                </ul>
+                
+                <h4>Expected Outcomes</h4>
+                <p>Solutions should aim to address critical social issues, empower vulnerable communities, and create measurable social impact in Telangana.</p>
+                
+                <h4>Technology Focus Areas</h4>
+                <ul>
+                    <li>Mobile Applications</li>
+                    <li>Internet of Things (IoT)</li>
+                    <li>Artificial Intelligence</li>
+                    <li>Data Analytics</li>
+                    <li>Community Platforms</li>
+                </ul>
+                
+                <a href="#" class="btn">Register for this Theme</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('show') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('show')) {
+                    navMenu.classList.remove('show');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Theme Modal functionality
+        const themeModals = {
+            'healthcare': document.getElementById('healthcare-modal'),
+            'agriculture': document.getElementById('agriculture-modal'),
+            'smart-cities': document.getElementById('smart-cities-modal'),
+            'education': document.getElementById('education-modal'),
+            'governance': document.getElementById('governance-modal'),
+            'social': document.getElementById('social-modal')
+        };
+        
+        // Open modal when clicking explore theme button
+        document.querySelectorAll('.explore-theme-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const themeCard = btn.closest('.theme-card');
+                const theme = themeCard.getAttribute('data-theme');
+                
+                if (themeModals[theme]) {
+                    themeModals[theme].classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        
+        // Close modal when clicking close button
+        document.querySelectorAll('.close-modal').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modal = btn.closest('.modal');
+                modal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // Close modal when clicking outside modal content
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.show').forEach(modal => {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            });
+        }
+        
+        // Animate elements when they come into view
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.timeline-item, .theme-card, .about-img, .about-text, .contact-info, .contact-form');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                }
+            });
+        };
+        
+        // Initial check
+        animateOnScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>

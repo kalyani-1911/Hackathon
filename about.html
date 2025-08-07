@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon 2025 | Telangana's Premier Tech Challenge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        
+         :root {
+            --primary: #6c63ff;
+            --secondary: #4a42e8;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --accent: #ff6b6b;
+            --success: #28a745;
+            --warning: #ffc107;
+            --info: #17a2b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f7;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--secondary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+             background:  #4a42e8;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #4a42e8;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        
+        .btn-outline:hover {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 15px auto;
+        }
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--dark);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+            margin-top: 20px;
+            
+            
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            font-weight: 500;
+            margin-left: 20px;
+            margin-top: 10px;
+            
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        
+        .stat-item {
+            margin: 20px;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+        
+        /* Purpose Section */
+        .purpose {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .purpose-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .purpose-text {
+            flex: 1;
+        }
+        
+        .purpose-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .purpose-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .focus-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .focus-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .focus-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .focus-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .focus-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Drug Awareness Section */
+        .drug-awareness {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+        }
+        .drug-awareness h2{
+            color: white;
+        }
+        
+        .awareness-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .awareness-text {
+            flex: 1;
+        }
+        
+        .awareness-image {
+            flex: 1;
+        }
+        
+        .awareness-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .pledge-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-left: 5px solid var(--secondary);
+        }
+        
+        .pledge-box p {
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+        
+        .tech-solutions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .solution-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .solution-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .solution-card i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        /* Why Hackathons Section */
+        .why-hackathons {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .quote-box {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 50px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .quote-box::before {
+            content: '"';
+            font-size: 5rem;
+            color: rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 20px;
+            left: 30px;
+        }
+        
+        .quote-box p {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .quote-author {
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .benefits-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .benefit-item i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-item h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background: var(--light);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        /* Partners Section */
+        .partners {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .partner-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+        
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 80px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .partner-logo:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-logo span {
+            color: var(--secondary);
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-contact i {
+            color: var(--secondary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links-bottom {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links-bottom a {
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links-bottom a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .purpose-content, .awareness-content {
+                flex-direction: column;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .stat-item {
+                min-width: 150px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Hackathon <span> 2025</span></a>
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="themes.html">Themes</a></li>
+                    <li><a href="timeline.html">Timeline</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <a href="/rulebook.htm" class="download-btn" download>
+                
+                Rule 
+                <p>Book</p>
+            </a>
+                     <a href="team.html" class="btn">Register</a>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Hackathon 2025</h1>
+            <p>Join the ultimate tech challenge to build solutions for a better tomorrow</p>
+            <div class="hero-btns">
+                <a href="team.html" class="btn">Register Now</a>
+                <a href="#" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container stats-container">
+            <div class="stat-item">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">Participants</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">48</div>
+                <div class="stat-label">Hours</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">₹1 Lakhs</div>
+                <div class="stat-label">In Prizes</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Challenges</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Purpose Section -->
+    <section class="purpose" id="about">
+        <div class="container">
+            <h2 class="section-title">Purpose of Hackathon 2025</h2>
+            <div class="purpose-content">
+                <div class="purpose-text">
+                    <p>The Telangana Hackathon 2025 aims to foster innovation and problem-solving among youth, developers, and entrepreneurs. Our mission is to address critical societal challenges through technology-driven solutions.</p>
+                    <p>We're creating a collaborative ecosystem where students, professionals, and domain experts can co-create solutions that drive meaningful change across Telangana.</p>
+                </div>
+                <div class="purpose-image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Team working on hackathon project">
+                </div>
+            </div>
+            
+            <h3 class="section-title" style="font-size: 2rem; margin-top: 80px;">Key Focus Areas</h3>
+            <div class="focus-areas">
+                <div class="focus-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Healthcare Innovation & Telemedicine</h3>
+                    <p>Developing solutions to improve healthcare access and quality through technology.</p>
+                </div>
+                <div class="focus-card">
+                    <i class="fas fa-tractor"></i>
+                    <h3>Agricultural Technology & Food Security</h3>
+                    <p>Innovations to enhance farming productivity and ensure food security.</p>
+                </div>
+                <div class="focus-card">
+                    <i class="fas fa-city"></i>
+                    <h3>Smart Cities & Sustainable Infrastructure</h3>
+                    <p>Building technologies for smarter, more sustainable urban living.</p>
+                </div>
+                <div class="focus-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Education Technology & Digital Literacy</h3>
+                    <p>Solutions to improve education access and quality through digital means.</p>
+                </div>
+                <div class="focus-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Environmental Conservation & Climate Action</h3>
+                    <p>Technologies to combat climate change and protect our environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Drug Awareness Section -->
+    <section class="drug-awareness">
+        <div class="container">
+            <h2 class="section-title">Say No to Drugs: Our Commitment</h2>
+            <div class="awareness-content">
+                <div class="awareness-text">
+                    <p>Substance abuse is destroying lives and communities across India. Telangana Hackathon 2025 takes a firm stand against this epidemic by empowering youth to build technology solutions for prevention and rehabilitation.</p>
+                    
+                    <h3 style="margin: 30px 0 20px;">Why We Fight This Battle</h3>
+                    <ul style="list-style-type: none; margin-bottom: 30px;">
+                        <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                            <i class="fas fa-check" style="margin-right: 10px; color: var(--secondary); margin-top: 3px;"></i>
+                            <span>Youth Vulnerability: 65% of drug abuse cases start before age 20</span>
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                            <i class="fas fa-check" style="margin-right: 10px; color: var(--secondary); margin-top: 3px;"></i>
+                            <span>Social Impact: Affects families, education, and career prospects</span>
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                            <i class="fas fa-check" style="margin-right: 10px; color: var(--secondary); margin-top: 3px;"></i>
+                            <span>Economic Cost: Estimated ₹10,000 crore annual burden on society</span>
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                            <i class="fas fa-check" style="margin-right: 10px; color: var(--secondary); margin-top: 3px;"></i>
+                            <span>Health Crisis: Leads to mental health disorders and physical deterioration</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="pledge-box">
+                        <p>"We commit to creating technological solutions that empower youth to make healthy choices, provide support systems for rehabilitation, and build a drug-free Telangana."</p>
+                    </div>
+                </div>
+                <div class="awareness-image">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTERURExMWFhUXGBUWFxgWFh0aGxkYGhgaIBoYHBgbHCggGxonGxgXJTEhJSkrLy4uHyEzODMsNygwLysBCgoKDg0OGhAQGzcmICY3KystMC0uLS0vLS03Mjc3LS0tKzctLS0tLS0tLS81Li0tLS0tLSstKystLS0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAwEBAQEBAAAAAAAAAAAABAUGBwMCAQj/xABIEAACAQMCBAQDBQMICAUFAAABAgMABBESIQUGEzEiQVFhB3GBFDJSkaEjQrFicnOCsrPB0RUkMzSDosLhU3SEw/EWFyU1Q//EABkBAQADAQEAAAAAAAAAAAAAAAABAgQDBf/EAC8RAQACAgAFAAgFBQAAAAAAAAABAgMRBBITITEFQVFhgdHw8RQikaGyI0JxscH/2gAMAwEAAhEDEQA/AOp0pSoSUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgVVc0yypaSyQjMkYWULjOoRursg9yqsPrXjJxk28qw3OySHEM/ZGJ7RyeSSeh+63lg+Grug8Le8R0jkVgVkAKH8QK6hj+qCa+53wM+6j82A/xqmtLBordoVBxBJrh94w2tYx8lLRfIVcXMWpSPkR9CCP4UHrXlBMHyR2DMufdThvyYEfSv25m0Iz4J0qzYG5OBnAHrUXgVu0dvEkmDJpBkI7GRvFIR83LUH1xC70aUX/aSHSg7+7OR6KN/wAh51LVcADc49e/1qvs+HETPcybyMOmnpHEDkKPdj4mPmcDcKKkXl8sexyzH7qKMu3yGf1OAPMigk18qwIyDkeoqJHA77zYA8olOR/Xb98+33f52Aam0ClKUClKUClKUClKUClKUClKUClKUClKUClKUEe5u1j+9qA9QjMB8yoOn5nFQFu2YGS1kjuFzunUGR66ZBnB7+Fx321KKt6jy2MbOJDGpcdnwNQ+Tjf9aD50rPERJGdLbMkg3+o7d/MH3FRG43aROIDPGrKVTSW+6TjSrHsrHIwCQTkVV/EnjzWXDpJoziQlYoz6M2fFv5hQxHuBXh8PeCNHZIsraxIhMqNpZWZyWYttknxb5JoJo5rSS6a1twkrRnErGUIqtv4FwrFmGMHYAHbOcgR+K8zTGWO0t7eZZpC2p5YyEiVcamDbrKdxjSSu4J9DV8m8q29pxG8WNm2MbIhXZUdCca8ZIBLADPYDOe9ajinFelc28WnImEoB9GUx4Ge+4Y7D0oPO9hvY8Nbuk34o7jwke6Sxrt8mU+xHavKPht9IpeW7ET48EduimNCPxNKrNJnz+77DzqfzFeGG0uJl+9HDK6/NUJH6ivvgV6ZraGdhgyRxuR6FlBI+hNBX8v8AFZ2drW8jEdwq6gyHMcyZAMkZO4wSAyncZX1qdoSDcJI7udyqM7H5sBhR8yB9azPHXuPt9rdJKv2RZFiK53aWVjCyqAOwHiyTj8hWzmiDAqRkH3I/Ub0H7GSQCVIz5HGR7HBI/I19VAj4Nbj/APih/nLqP5tmpscYUYUAD0AwPyFB9UpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUqNxMHoS4YqdD4YHBHhO4I7EVU2nNMJRNTLrKqWXqRghsbjS0gbvnyoInPF+YBDNrKrFJE7+IgFDPHG+oZwRpk8+1TJ+c7Be93EckAaG15J7Y0ZznFUfN3FVkSRhHqVba6JDo+livSkALFAnaJtgxPnjbNa/h1qiRoFVBsD4FCjOO4HlQcx+JfEYL6xuXhLsbc20gLI6bM7oQA4BKjOc471ofhdfSSWcQaRc6cnsXPv32wNPl51+/Ee2zHOPJrC6JHvDJAyn/mauYfC3jNwtwlvDpOFkIV5OmrFiu5ZVJ23wMHv6UHWbnwcYUEFkntQCCBjVFI2GOSPKQDGD9MV68zXfRu7BljLjVcJhBuuqMbgD5EY9/pWZ54uZ4HtLqfo5EvQBXW2lZRlixbGrGhTsBtkbZzUvmvjVtbrBKbqGR45g2mMjVoZGU4UOdslCST5UGh5oE1zaTW8MLq8sbIGlAVRqGDk5z2PpXxwuLiAiSIpbxBQE15aQ4UYyIlCKo2GBqP+FQp+dopIytvLH1GA0s7poQnsWGvLeeyg5xjav3iHxEs4otYk6h6giVV+8xzgvpHZdiQfMYx3oKvmeFrGyhjb9pou4pY2QadbtcF2QjOIzhnwc4x6Hvq3hnJwsIxnfqXLHzHlofO2fP0ry4rCnELBwmcSKSm2CHU+E79iGH6V+8EC3dtFcFpPGoLKSPC42dD4cgq4YH5UEdLu5XCIrFgzqUWHMaqNWMSuyA48I7/T0tLVLvH7SSAewiYn6nqgZ+QqZaWyxqEQYUEnGSdyST39ya9qCN0HPeUj+aqj+0GolswIzLIfY6B/ZQVJpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQfMiBgVPYgg/I1C4FZtDAsbEZBfJHu7EfoRU+lBUcz2okgKncESqf68EqfxcVn+TOFzT2VtPNe3JLRq2lGVV2YkZwuT4QoO+4+dbK4hDqVO3Y5HkQcg77bEA77VXcCMMcUdtb6pI4lEYcbqAu28mys2e4XOD3AoM7zfwGOCxuZ4zI7i2uIy00zudEm7YByNWoL5DsBnArK8tch28lsuWEFyu4kQ9QOrDBV4XY6hjuML37eVdI5tt+vw+6jQhi0MoXBzlgpIH5jFUXwm4nFLZhIxEpjC6lj8sjOWJ3LepO+c9+9EM/zF8M765GZeIrIqAlUdGRVwNsKGIHucVyfmLgE1nL0pgM4BBHYg/wAD7fI9iCf6uYe2cb1yH41cHYwwOACw+0SzN6k9MY+QHhGfJRUjlHCeFS3DaY1zuATjsWzpH1IxWn5H5W13ET3UZ+zuO4UtnUuU+4cqCQwDbjKsDuNtz8HuXMQM7Y/aFHDDuV0oVAPsS4PvXTm4fCI3TpIUbWWTA0nUdTbHYZbc++9BDS9treIKrIsaLsAwwAPrtVXyPedWO5kjA6b3MxgzsGGldTLj90y9U5Hfc1kuceMTXl1HwiDSVkOJGDayiAeLxCRuy5+8K6LPw+DpJbEaUwEjVSVI0DbSR5gDP0qEviO2aRsyJJE+O8dwxQ/IZH6oKlwW7KcmV3Ho2jH5qgP61Qqb20IBze2+QNWwuIh6t2WZR6jS3zq+s71JBlGzjuDsw+ancf40EilKUClKUClKUClKUClKUClKUClKUClZzmTjksUsdvAqmRwDl+25IA7jzB3r44fzG8ljLcFVEkeR56ScAg4zn94bZqvPG9NP4TJyRf1S01Kx/A+ZZ51nyseuOMugCnBIzkHxb+XanDeZ5pZLaPEeZNfU8J2Cs33fFt4VPfNR1IXngcsb3rt7/dtopeGrIczEyD8B2jH/AAxs39fV7Yr2u7QSLoJITzCnTqH4SRuF9hjPbtkGu5r4o9vCJIwpJcL4gSMEMfIjfYVW8K5klluLeLCaZIyzYBzqHUzjxbDKVM3iJ0504XJfH1I8d/2aiCFUUIihVUAKqgAADsABsBXFPtJ4JxOaLtBMySR7bdMlj3Hkp8OPkfY7K45zuAzOiR9JXC4IOo51Yyc4yQp8tq+virwFLzhzTgftIUM0Z89OAXQ+xXf5gUraJ8GbhsmGIm3rbS3uVYKQwyQDjO+49KrOa+GJc27W7nSJAQX28CgZLb+WQo+tcC5U52ktNWSxOAAynLEfhJYkBdhsFNbSO5k4t0xcySW8g1aOjBKNIJGfGJNDZAGSVH0qzMh8p8yTcJlPD7oiMKxIJDPEyschhjxKD5Mu34lyCa0POHxJjFuAserVtlJI5Fzj1Vsj03APtWa5v+F5t4HmF60ghj1BHjOQgbGFIc4GT2xisCOElbR7lw65kiSLbCuHEpZsnuB0wNvWpHaPhDy8yLJxGWNUe4A6Sj92Lvq338Z0n5Aetb7iNkJUCk4Ksrow7o6/dYfwI7EEg7E1Htv2VmunH7OBcZ7eGPb+FZSy5yuNSGRIzGzaTpBB206seI7jUDVLXiJ7tOHhcmaszT1N2mcDPfzx2z549qaRnOBn18/zrG8Z5muY7maKNYyseD4lOdOlSSTqHm1ffEua5Vt7eaNUBk6gYMCQCjAbbj375qOpDpHAZdVn2/LbY0rL8P5kkZ7vWq6YBIVCggnSxABJJ9B5VA4bzbOZYhKkfTlbSNIIIy2nOcnsTTqQfgcvf3fLf+m3pWM4vzTOs0yxLHoh+8XBJPiCk7MP3jWq4Zd9WGOXGNahsehI3FTFomdOeXhr46xa3iUmlKVZnKUpQKUpQKUpQKUpQZLniyVikiSKs6DwpqAZ1zkaR3LA5x671Cl4mknC5CqIjao0cIoUMdSnVgDzUfoat+ZuCyyyxTwFdce2GOOxyD+p2qtj5SmFo0QZOo8iOck6QqggDIXc5Oe1cZidzp7GHJi6VOa3iY+Hfv8ABF5MKi80gghrdQfnojJHz2NOTLPF7Ip7QiRR89en+GqrThnLUkN1FMvTCKgVwGOS3TIYgY3y2/cVM4HwaSK5uJnK6ZCxXBOd3J3GNtjStZ7bTm4mkxflnzWP1+yP8Qv91X+lX+y9ZjlLIvoVP7pkX/lkJ/UmtpzZwt7mARxlQ2sN4iQMAMPIH1FV9ly3Il8txlOmNyMnVkx6Ttpx94nzpaszbavDcRjrw00me/5mLb/YS/00X9mat/xq4EfCpXP7to359LAH5kVQ3PJtxqdEaPps4bJJyMagMjHcBztUr4ogpwmWJDgkImT+FPE3/JG1TjrMT3V9I5sd615Z39ofztYW3UkVNQXP7zEADb3Iru/w/wCWfs5VxM52GykMp29WBwPlXDuEIOqpMpjIIwVDFifRdIO/+fnX9I8kq/RAcNjAwWAGfyVTn6V2eSrPiSWNveBTg/ZrdBvjLS3BXGffQBv6ms18YOGdPhtrFGqhYsu5GBsNCD+cdUoG2fOugc1cIFwix6wgaWBnJx4kiYvpAJHc4rO/GMf6lId/uadseciN5jtmMflUJa2Y/wCpN/5c/wB3XNF/2UH9LL/CGumwxF7QIO7QBRn1MeB/Gsla8nXGUWRowisWOCSd9OrA0+iiuWSJmY09X0fmx46W5p19pQOYy32260gfd8Wfw6I849+1fnFgv2Oy05x+2zn8WtdX0znHtV9xPlmaS5uJVMemRSFyxznSg3Gn1U+dfN3yrK1pDEGTqxNIe50kOxOxxnPby9apNZ7tUcTi1j/N41/FWWP3uJ/zZv7xqh8LuFBtVeFW/aDS5ZgQTKM7KcHGx3HnWl4Ny3Kq3JmZdc6svh3wWySx29SNqr7PlO5DQljFpikVsBjkjUGY50/yRgU5Z7H4jDM2ibez+Ou3xeXM8Sw3JuIWjff9rESG0nIzqX8JOPk2Patrwq4SSGN0AVWUEKNtPqNvQ5FZbjPK9w08zxGMpN31EgjxKx8vxKN/SrC34LcxvbBJR0o1USLqYajqYthcYI3A3q9dxM9mTP0smKkc/ePl4n49oaSlKV1eWUpSgUpSgUpSgUpSgUpSgUpUbiF6kMbSyEhV74UsdzgAKoJJJI2FBWcy8xG00hbS6uCwJ/1eIuFx+JvI188rcfluw5ksp7YLjT1hjXnOcAgHbHpj3qz4XfdaISiOSMNnCyrofAPcrkkA9xnf2qXQK5z8bLvTZhM4zn9SoHb21/8Afseg3E2gaj2yAT6A7Z+WcZ9Bk+Vcp+Nt5iN03Oo28ffGNHUkPzzrTb2z5Cg5JwSOUzL0QdQI3GrYdt9Hix5bV/UHLBboKGDZAA8QYDt5B98V/NPKnR+0oJlUrn99gE/rahg/Uiv6c4EUMCaNGjHh6enRj20Er+RqUI/MVwiiIOzLqfA0swJ27eFSSPbasz8Z5VXhp1DOplA38/I4ra3duHK51jBzlTjt6nvj5VgPjuoPD0J7iZcfUHPn/nUJb7hR/YRf0cf9kVG5k4k9tbvcJEZenpZkBw3TyNZX1IXJx7V48DvNVpa6TlnhgYbZwpVdTH0GM7nzx37VZLdoZGiDKZFVWZM7hWJAJHoSDQftndJLGksbBkdQykeakZB/KvaoPC+HR20fTj8MetmVSRhNZzoT0XUTgeWcDbAE6gUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgV4i6TqGLUOoFD6c76CSA2PTIIr2qFc2MXVS5YYeJZAGzjwMPErDzXwg79iKCq45fyyTrYWz9NyolnmwD0YicKFB26rkEDPYAn0qiueM3PD7o2zStcxmNJUM+NYBZlZeogGcFc5KnviqLl7mEtPJKfvTP1W3/Go6aZ9Eg6Yx6yNX7xniQub5mG6xQRpnHcuTJ/YkQfMGq3nUbaOExxkzVrMdpbT/wCqbaaNopGMDOrJ+0Hh3B/fB049iQa5J8UbS9mupZXixEg6q6GDqyEIjSqR95RpjDHGV8OQM1ruH2wlmjjbIDMM4748/wBKuuJ8lSoA1rINQbUAWMffIJwMqx0kjDDBBI86rS8y08XwePFbUW169T83GORbYm7iPVSIFtIaRNYY7eFQQQW3HmMZ71/THD0ZY1V3V2wd1TQDv+HJx3HnXLePWKaBHc2RiLkdd4VCqcZ0zR4yOsNzgZ21KdQYET+IczR8K6MTyTSgRlQ+lm19QKRLrY6WACR+ENnxN2rowTSa+W0seLl7ye2IGlFjeNs/eyqmQY/k649/5XtWP+Kn+tcPk0ZOm4Aj0tjVoj8WR2IB6nywK+uK8QCPa3EDO8Qt2eVxhD0y4Vg2oeFyS+E76kA7A4i3HEEkmueERNhHt45EuFVWYoy9SQk5GolWUD86KrfkzjEUXCraQypq0RhgzKGwuUAC5zgBfL3O57/dxxG1F/8Abo3lkfofZ2jRMKw1hlbU5Ubdts1n+A8NsoYU6jSu2FbQgwBjGF/dHkScnuWNWycwLHtb20cf8pvET8wMb/1jVJu34eDm39sz+0frLz5g5ge5TpdMRBZI3BLFmzG6sDjAA3XHnWe5g5gvpHZI7qROnGZWKaV3OdK4UDbCMTnftvU2eZnZnY5ZiWPzJz+VZG7uyt3cp6xL+kTj/rqlLTazVxnDY8HDxqvedbdh+HnHHvLCOWQ5lUtHIcYyyn72PIlSp+taWuffCq7RLN2Zgozbkk/iaCIYx6nC7DvXQFORnf6967PGftKUoFKUoFKUoFKUoFKUoFKUoFUfOHGXtbVpYlRpdSIiu2F1OwALe2/t8xVvcKxUhW0t5GuWfEDlu/mxifODq7sO3b7ieXlQbrh13qUGa4OrHiGBEpbG+kDxBR7sfnVP8Q5k/wBH3Dw3DhlRtlldgwYaSrDVjs2QfIgdxkHB8OW+1JHfyTy26ZwkK+LPYZZlU6cZ7NntVvdiF4ZYG4jLbW24eKdkDuNm1IGjLFMnTsxyR5ecoYRL7oQRDDMX0aiO/i8YYerAaB9BWo4LgK0jEdSVmkcZ+6WJIUeyggfStD8JuMWgheNDlwxwWCibpgAICoOWUAfuZ88gHc9AneOQYIbbcHpPkH1GUql680aauE4iMF+fW3L4rlkkVkbDLls7dyCoG4PfLfka09tzdOuzokg+qN+e4P5Co91xu2MjxPYCVlLI2BbYbSdJOl5Q6jbswz2BrHc5cf6DRi3tnieTI0SOjr5AFNEjFTk9icemN6pyWjxLbPG8Pmn+tT4/Wmn5454U2jxQ6knf9nhgPCGIBbUpIGx2zvuDiqSJRGIoZC9wtvA7ghW6U625Y5VDlV0eELMQVYeHByAL3l/4XRY6vEGM8zaWZAxEa4Gy5HibG/nj2PetdLYWaFh0Yi7LoYBAzsuPuse5XH4jiuse95mSazb8kdnHUF/xiKYQRIoWVmY5EestnAI7FwoAJJ2H84k/vBOETwxPEF6XEVJRVkgaRjCyHxRumcJ95S2GGSASA22i5V5it4OJ3VsjqVkk1odZZSzAdSLWx3bXkg+ZyM1uuY7cz27PDIY54xrikXup9CPNGAwQdjsfIGpc3KuGX7SRxso2KgEMMMHHhYemMj/4qz14GWwPrVTy3cRXVvKdDQ38cjy+CNysqyEsUKgEL3OM4xsQcEiqXi3FZ0I1QSxqroW1xFQcMDjxDz7YPeuE4u73MPpKsY928+xuBayf+FJ8+m2PzxWF55jeKdZlyNSNG3lhsEb++GH5V07hPxQsXVQbh4m/DKjbH+fiTb61eWvNdu7ZW6tXDd0EiZJ7Z8brg4wO3pV64+WdsnEekJz05LVYD4b8cSOEBY1kkdwx31tDFHDGjSdBTqJ1A7DDEHzxiur2k7yIJI5YZUYZBVTpb5MHb+BrmHxUksVgMsUSw3ishSSE6TnI1ZZBpY6c+eR6+uH4Xz3cxtrddZz4pI2aGRtv3mjwsh95Faujzn9GC6IIEiac7agdSZ9NWxH9YCpVcSsOeLuUqjm7COyhi5hC6CRqAboIxyuRswO9dlsroSIHAxnyPlUJSKUpQKUpQKUpQKUpQKUpQK/CK/aUEKfhcL/ejU/Qf5VUXPJ1u4IKRDPmsZB/tmrXjnFUtYHnkBKrjZe5JIAA+pqt5d5qW6aSMxNE8aq5ViDlWGQcj2K/mKtFLTG1JvWJ5Z8spxP4O20jakldPUADH6gmqe++El0o/Y3bEehY/wCaitzy9zsl2ZFSF1ZImlALA6sY8IwO+4r74PzklxJBGkTAzLI+Sw8ARnG/rnR+oq04rx6kRlpPiXK//tXfxtqBJz3KOqnf31HNSk5WntQ0jpJLlSpV5Ub+HiGN66lzVzKlmYg8ZcSFtwQNIXTknI3+9+ledtzbGUu5DGyrasUOCCXOogY7YyQO/rSMdpjeiclYnW3MbPnHiCxaP9Gu7AY1BZgp/lFF2z8iPpVbxX/TN1HpaPpREbxqyRAj0bW+tvkxNdd5Z5xF3KYTC0T6OouWDBk23zgYOGBx869eaeavsRXVA7qw++DhQ2/gyR3wuflTp25uXXc6leXm32cNtvh9cyLlM6gMlWQn8ukXJ7elX1rYcZRWt3kwmkhXfS+PzPUX56SfaumcS5zMMcJNtJ1ZtZEROkqEONyR59xt2q35e4ul5brMqkAkqVbBwQe3uOxz71E0tEbmCMlZnUSxHK/LR6Ma3CskqII1e3nmRmQElc6PEBucBhgZ2xU3ifwutZzrkluHkxjVLMXYDfC6j5DPpXra/EBDKsTWzKnV6QcMCA2rGcaR8+9SOMc+Jbzywm3dhERqZWHY6d8EerAbmrdG+9aV6+PW9suPgxEHB6jFfMdTH/tf41Y23wiscYdZM+pc/ls/+FaDinOUcMvT6bODB9oDAgZXSzYx64Wvm750RLe3mELs9wWEcQIzs2N2+ZHl51HSv7FurT2q3hPwss7eTqxyTZ/CSpU/MFMn862Flw2KIYRFG+fuqN/oBVDHzxAbI3hRgA/S0bZ14BxntjSc5/Sp3LfMS3RlTptFJEQHRiDjOcbj+aaicdojcwRkrMxESt0hUbhVB9gBXpSlUdClKUClKUClKUClKUClKUClKUFNzfZxy2ckcsixKdOHcgKrBgVyT5FsD61jeUuIKsN4siKLiKB/2oOS8Sphd84IGEwR3BX67nmPhIurZ7ctp1aSGxnBVgRt5jIrNcP5GkRbgvOrSTQiBSEICqAoyRnc6UUf55rRjtXkmJlmy1tN4mIZz4cyKt7AFIOu3kVsfi6jtg++lF+mKsvh/Y6eI3KntbiSJfYNMcfop/OrXhHI5gntp1kT9krLIAhBkY9TxZzts6jz+7VrwPgDQXN1cFwwnYMFAIK4Zjuc7/erpky1nm1PmHPFitHLuPE/8+bNfFmEu1og7sZgPmenVDwiYvw3iTnuzQMfmZN66JzDwA3M1tLrCiBy5BXOoEocZyMfc/WqvhPI/Stbm2aYN19OGCY06c4JGd98elRTLWMcRP13L4rTkmY+uyg5H/8A2MP/AJNP7tKt/i7/ALnF/TD+7kqXyrye9tP15Jg5EYiQKuAF8O5JPooFT+cuXjewrEJBHpcPkrqz4WGMZH4qi2SvVifUtGO3RmNd2e56P/5Czz26b/8AVVh8KP8Acf8Aiv8AwSpXNnLL3TwyxyiN4gw8S5BDY/7/AJ1P5V4L9jt1g1ayCzM2MZJPkPQDAqLXrOKI9f3WrS0ZZnXb7OTL2/8AXCpfORb7ZfgAaT09ZPcLqhxj31afpWng+HriUM1yDGJutoEe5Oc4yW222/wqTxrkd55rmUTqonCAAoTp0tGe+rf7n61261Obyz9G/LPb67s1zOB9pTRkqOHbZ76ejJjPvjFfNyxEfByoyQXwPU9ZMD88VqON8kvK0TxzhGW3W3fKZDKFIJG+2Qx2+VenEuSi0FpHFMFkts4dkyGJIYnAO3iUEd6iMtNR3WnFfczr62znCoILjhMynpW2JwULSNoMgjXALSMcZXI2+dXvw2vVfro8YS5QqJW85BlgC2+NQIYHHfY+dI+QsWUln1gS0wmR9HbChcMM77Z3B86suVOW3tnmmllEkkuMlV0gAZ/MkmqZL1ms6lfHS8WrMx/lpKUpWRsKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQKUpQf/9k=" alt="Say No to Drugs">
+                </div>
+            </div>
+            
+            <h3 style="text-align: center; margin: 60px 0 30px; font-size: 1.8rem;">Tech Solutions Against Substance Abuse</h3>
+            <div class="tech-solutions">
+                <div class="solution-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Early Detection</h3>
+                    <p>AI-powered behavior analysis to identify at-risk individuals</p>
+                </div>
+                <div class="solution-card">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Gamified Education</h3>
+                    <p>Mobile games teaching consequences of substance abuse</p>
+                </div>
+                <div class="solution-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Support Networks</h3>
+                    <p>Anonymous peer-to-peer counseling platforms</p>
+                </div>
+                <div class="solution-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Rehabilitation Apps</h3>
+                    <p>Digital tools for tracking sobriety and providing support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Hackathons Section -->
+    <section class="why-hackathons">
+        <div class="container">
+            <h2 class="section-title">Why Hackathons Matter</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px;">Hackathons are powerful catalysts for innovation and social change. Here's why they're essential:</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Accelerating Innovation</h3>
+                    <p>Compressed timelines force creative problem-solving and rapid prototyping that would normally take months</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Democratizing Technology</h3>
+                    <p>Students from rural areas and tier-2/3 cities get equal opportunity to showcase talent</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Building Collaborative Spirit</h3>
+                    <p>Breaking silos between institutions, disciplines, and industries</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-gem"></i>
+                    <h3>Nurturing Future Leaders</h3>
+                    <p>Developing critical thinking, resilience, and leadership skills</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Validating Ideas Quickly</h3>
+                    <p>Real-world testing ground for solutions before significant investment</p>
+                </div>
+            </div>
+            
+            <div class="quote-box">
+                <p>"Hackathons are the modern-day crucible where raw talent is transformed into impactful innovation."</p>
+                <div class="quote-author">- Dr. K. Taraka Rama Rao, IT Minister of Telangana</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Benefits of Participating</h2>
+            <div class="benefits-container">
+                <div class="benefit-item">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Prizes & Funding</h3>
+                    <p>Win prizes worth ₹50 lakhs plus incubation opportunities at T-Hub</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Networking</h3>
+                    <p>Connect with industry leaders, investors, and government officials</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Career Opportunities</h3>
+                    <p>Get recruitment offers from top tech companies and startups</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Learning</h3>
+                    <p>Access exclusive workshops on AI, Blockchain, and IoT</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Who can participate in the hackathon?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Students, professionals, and startups from any background can participate. Teams of 2-5 members are recommended.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How can technology help in drug prevention?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>From AI-powered early warning systems to virtual counseling platforms, technology provides scalable solutions for awareness, prevention, and rehabilitation support.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What makes this hackathon different?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We focus on real-world implementation - winning solutions will be deployed in partnership with the Telangana government and healthcare organizations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners">
+        <div class="container">
+            <h2 class="section-title">Our Partners in Change</h2>
+            <p style="text-align: center; margin-bottom: 50px;">Collaborating to build a better future through technology and innovation</p>
+            
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Government_of_India_logo.svg/1200px-Government_of_India_logo.svg.png" alt="Ministry of Health">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/Telangana_State_Emblem.svg/1200px-Telangana_State_Emblem.svg.png" alt="Telangana Anti-Narcotics Bureau">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://t-hub.co/wp-content/uploads/2020/11/t-hub-logo.png" alt="T-Hub">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/96/National_Institute_of_Mental_Health_and_Neurosciences_logo.png/220px-National_Institute_of_Mental_Health_and_Neurosciences_logo.png" alt="NIMHANS">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">Hackathon<span>2025</span></div>
+                    <p>Empower Innovation. Transform the Future. Join the state's brightest minds to build solutions that shape tomorrow.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#themes">Themes & Problem Statements</a></li>
+                        <li><a href="#timeline">Event Timeline</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> T-Hub Foundation, Catalyst Building, CII, HITEC City, Hyderabad</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 40 6655 3000</p>
+                    <p><i class="fas fa-envelope"></i> myself_akhil.y@icloud.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-links-bottom">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Code of Conduct</a>
+                </div>
+                <p>© 2025 State Hackathon. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('show');
+                }
+            });
+        });
+        
+        // Add shadow to header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.2)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>

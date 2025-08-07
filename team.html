@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Selection & Course Registration</title>
+    <style>
+        /* Team Selection Styles */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 2rem;
+        }
+        
+        .team-size {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .team-option {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .team-option:hover {
+            background-color: #d0d0d0;
+        }
+        
+        .team-option.selected {
+            background-color: #4CAF50;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .team-display {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            min-height: 100px;
+        }
+        
+        .team-member {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #2196F3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .submit-btn {
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            background-color: #FF5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #E64A19;
+        }
+        
+        .submit-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .instructions {
+            margin-top: 1rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Course Selection Styles */
+        .course-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .course-option {
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+        }
+        
+        .course-option:hover {
+            border-color: #2196F3;
+            background-color: #f0f8ff;
+        }
+        
+        .course-option.selected {
+            border-color: #4CAF50;
+            background-color: #e8f5e9;
+        }
+        
+        .course-option h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .course-option p {
+            margin-bottom: 0;
+            color: #666;
+        }
+        
+        /* Registration Form Styles */
+        .form-container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        .name-fields {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .name-fields input {
+            flex: 1;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .cancel-btn {
+            background-color: #cccccc;
+        }
+        
+        .cancel-btn:hover {
+            background-color: #bbbbbb;
+        }
+        
+        .required-field::after {
+            content: " *";
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- Team Selection Page -->
+    <div class="container" id="team-selection-page">
+        <h1>Select Your Team Size</h1>
+        <p class="instructions">Choose how many team members you have👥</p>
+        
+        <div class="team-size">
+            <div class="team-option" data-size="1">1 - 4</div>
+            <div class="team-option" data-size="2">2 - 4</div>
+            <div class="team-option" data-size="3">3 - 4</div>
+            <div class="team-option" data-size="4">4 - 4</div>
+        </div>
+        
+        <div class="team-display" id="team-display">
+            <!-- Team members will appear here -->
+        </div>
+        
+        <button class="submit-btn" id="submit-btn" disabled>Confirm Team</button>
+    </div>
+
+    <!-- Confirmation page (hidden initially) -->
+    <div class="container" id="confirmation-page" style="display: none;">
+        <h1>Team Confirmed!</h1>
+        <p>You have selected a team of <span id="team-size-display">0</span> members.</p>
+        <div class="team-display" id="confirmed-team-display"></div>
+        <button class="submit-btn" id="register-btn">SELECT COURSE</button>
+    </div>
+
+    <!-- Course Selection Page (hidden initially) -->
+    <div class="container" id="course-selection-page" style="display: none;">
+        <h1>Select Your Course</h1>
+        <p class="instructions">Choose the course your team wants to enroll in</p>
+        
+        <div class="course-options">
+            <div class="course-option" data-course="cyber-security">
+                <h3>Cyber Security</h3>
+                <p>Learn about network security, ethical hacking, and protecting systems from digital attacks.</p>
+            </div>
+            
+            <div class="course-option" data-course="generative-ai">
+                <h3>Generative AI</h3>
+                <p>Master the fundamentals of AI models that can create text, images, and other media.</p>
+            </div>
+            
+            <div class="course-option" data-course="app-development">
+                <h3>App Development (Android & iOS)</h3>
+                <p>Build cross-platform mobile applications for both major mobile platforms.</p>
+            </div>
+            
+            <div class="course-option" data-course="web-development">
+                <h3>Web Development</h3>
+                <p>Learn full-stack web development with modern frameworks and technologies.</p>
+            </div>
+            
+            <div class="course-option" data-course="software-testing">
+                <h3>Software Testing (Automation & Manual)</h3>
+                <p>Learn automated and manual testing techniques to ensure software quality.</p>
+            </div>
+        </div>
+        
+        <button class="submit-btn" id="proceed-to-registration-btn" disabled>PROCEED TO REGISTRATION</button>
+    </div>
+
+    <!-- Registration Form (hidden initially) -->
+    <div class="form-container" id="registration-form">
+        <h2>Team Registration Form</h2>
+        <form id="team-registration">
+            <input type="hidden" id="selected-course" name="selected-course">
+            
+            <div id="member-forms-container">
+                <!-- Member forms will be added here dynamically -->
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" class="submit-btn cancel-btn" id="back-to-courses-btn">Back to Courses</button>
+                <button type="submit" class="submit-btn">Submit Registration</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Team selection elements
+            const teamOptions = document.querySelectorAll('.team-option');
+            const teamDisplay = document.getElementById('team-display');
+            const submitBtn = document.getElementById('submit-btn');
+            const confirmationPage = document.getElementById('confirmation-page');
+            const teamSizeDisplay = document.getElementById('team-size-display');
+            const confirmedTeamDisplay = document.getElementById('confirmed-team-display');
+            const registerBtn = document.getElementById('register-btn');
+            const teamSelectionPage = document.getElementById('team-selection-page');
+            
+            // Course selection elements
+            const courseSelectionPage = document.getElementById('course-selection-page');
+            const courseOptions = document.querySelectorAll('.course-option');
+            const proceedToRegistrationBtn = document.getElementById('proceed-to-registration-btn');
+            const backToCoursesBtn = document.getElementById('back-to-courses-btn');
+            const selectedCourseInput = document.getElementById('selected-course');
+            
+            // Registration form elements
+            const registrationForm = document.getElementById('registration-form');
+            const memberFormsContainer = document.getElementById('member-forms-container');
+            const teamRegistrationForm = document.getElementById('team-registration');
+            
+            let selectedSize = 0;
+            let selectedCourse = null;
+            
+            // Handle team size selection
+            teamOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options
+                    teamOptions.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    selectedSize = parseInt(this.getAttribute('data-size'));
+                    
+                    // Update team display
+                    updateTeamDisplay(teamDisplay);
+                    
+                    // Enable submit button
+                    submitBtn.disabled = false;
+                });
+            });
+            
+            // Update the visual team display
+            function updateTeamDisplay(displayElement) {
+                displayElement.innerHTML = '';
+                
+                for (let i = 1; i <= selectedSize; i++) {
+                    const member = document.createElement('div');
+                    member.className = 'team-member';
+                    member.textContent = i;
+                    displayElement.appendChild(member);
+                }
+            }
+            
+            // Handle team confirmation
+            submitBtn.addEventListener('click', function() {
+                // Hide current page
+                teamSelectionPage.style.display = 'none';
+                
+                // Show confirmation page
+                confirmationPage.style.display = 'block';
+                
+                // Update the confirmation page
+                teamSizeDisplay.textContent = selectedSize;
+                updateTeamDisplay(confirmedTeamDisplay);
+            });
+            
+            // Handle register button (go to course selection)
+            registerBtn.addEventListener('click', function() {
+                // Hide confirmation page
+                confirmationPage.style.display = 'none';
+                
+                // Show course selection page
+                courseSelectionPage.style.display = 'block';
+            });
+            
+            // Handle course selection
+            courseOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options
+                    courseOptions.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    selectedCourse = this.getAttribute('data-course');
+                    
+                    // Enable proceed button
+                    proceedToRegistrationBtn.disabled = false;
+                });
+            });
+            
+            // Handle proceed to registration button
+            proceedToRegistrationBtn.addEventListener('click', function() {
+                // Hide course selection page
+                courseSelectionPage.style.display = 'none';
+                
+                // Show registration form
+                registrationForm.style.display = 'block';
+                
+                // Set the selected course in the hidden input
+                selectedCourseInput.value = selectedCourse;
+                
+                // Generate member registration forms
+                generateMemberForms();
+            });
+            
+            // Handle back to courses button
+            backToCoursesBtn.addEventListener('click', function() {
+                // Hide registration form
+                registrationForm.style.display = 'none';
+                
+                // Show course selection page
+                courseSelectionPage.style.display = 'block';
+            });
+            
+            // Generate registration forms for each team member
+            function generateMemberForms() {
+                memberFormsContainer.innerHTML = '';
+                
+                for (let i = 1; i <= selectedSize; i++) {
+                    const memberForm = document.createElement('div');
+                    memberForm.className = 'member-form';
+                    memberForm.innerHTML = `
+                        <h3>Member ${i}</h3>
+                        
+                        <label class="required-field">Name</label>
+                        <div class="name-fields">
+                            <input type="text" id="member-${i}-firstname" name="member-${i}-firstname" placeholder="First Name" required>
+                            <input type="text" id="member-${i}-lastname" name="member-${i}-lastname" placeholder="Last Name" required>
+                        </div>
+
+                        <label class="required-field">Date of Birth</label>
+                        <input type="date" id="member-${i}-dob" name="member-${i}-dob" required>
+
+                        <label class="required-field">Email Id</label>
+                        <input type="email" id="member-${i}-email" name="member-${i}-email" placeholder="Email" required>
+
+                        <label class="required-field">Mobile Number</label>
+                        <input type="tel" id="member-${i}-phone" name="member-${i}-phone" required>
+
+                        <label class="required-field">Gender</label>
+                        <select id="member-${i}-gender" name="member-${i}-gender" required>
+                            <option value="">Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+
+                        <label class="required-field">Qualification</label>
+                        <select id="member-${i}-qualification" name="member-${i}-qualification" required>
+                            <option value="">Select</option>
+                            <option value="highschool">High School Diploma</option>
+                            <option value="bachelor">Bachelor's Degree</option>
+                            <option value="master">Master's Degree</option>
+                            <option value="phd">Ph.D. / Doctorate</option>
+                            <option value="other">Other</option>
+                        </select>
+
+                        <label class="required-field">Specialization</label>
+                        <input type="text" id="member-${i}-specialization" name="member-${i}-specialization" placeholder="e.g. Computer Science, Marketing" required>
+
+                        <label class="required-field">Experience</label>
+                        <select id="member-${i}-experience" name="member-${i}-experience" required>
+                            <option value="">Select</option>
+                            <option value="fresher">Fresher</option>
+                            <option value="1-2">1–2 years</option>
+                            <option value="3-5">3–5 years</option>
+                            <option value="5plus">5+ years</option>
+                        </select>
+
+                        <label>Upload Resume</label>
+                        <input type="file" id="member-${i}-resume" name="member-${i}-resume" accept=".pdf,.doc,.docx">
+
+                       
+                        
+                        <hr style="margin: 20px 0;">
+                    `;
+                    memberFormsContainer.appendChild(memberForm);
+                }
+            }
+            
+            // Handle form submission
+            teamRegistrationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Here you would typically send the data to your server
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData.entries());
+                console.log("Form data:", data);
+                
+                alert(`Registration submitted successfully for ${selectedSize} members in ${getCourseName(selectedCourse)}!`);
+                
+                // Reset the form and go back to team selection
+                registrationForm.style.display = 'none';
+                teamSelectionPage.style.display = 'block';
+                resetForm();
+            });
+            
+            // Helper function to get course name
+            function getCourseName(courseId) {
+                const courses = {
+                    'cyber-security': 'Cyber Security',
+                    'generative-ai': 'Generative AI',
+                    'app-development': 'App Development',
+                    'web-development': 'Web Development',
+                    'software-testing': 'Software Testing'
+                };
+                return courses[courseId] || 'Unknown Course';
+            }
+            
+            // Reset the form
+            function resetForm() {
+                teamRegistrationForm.reset();
+                teamOptions.forEach(opt => opt.classList.remove('selected'));
+                courseOptions.forEach(opt => opt.classList.remove('selected'));
+                teamDisplay.innerHTML = '';
+                submitBtn.disabled = true;
+                proceedToRegistrationBtn.disabled = true;
+                selectedSize = 0;
+                selectedCourse = null;
+            }
+        });
+    </script>
+</body>
+</html>
